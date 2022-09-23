@@ -1,7 +1,9 @@
+## Project Source
+https://github.com/riccardotommasini/airflowtp
 
 ## Project instructions
 
-Kristiine, a regular Estonian woman, is a multifaceted person. On regular weekdays she spends most of her time at boring consultancy company X working as a Java Engineer. 
+Kristiine, a regular Estonian woman, is a multifaceted person. On regular weekdays she spends most of her time at boring consultancy company X working as a Java Engineer.
 
 Last week, during a surely very interesting project, she had a wakeup call after attempting to implement  the `AbstractSingletonProxyFactoryBean` class.
 
@@ -39,52 +41,6 @@ names. Preferably you should just consume from a fake/random name generator apis
 * Proficiencies and languages - make sure to use the INDEX not the name. remember, it's always easier to add anything to a database if it's lower case, spaceless and comma-less. 
 * Languages: any.
 
-In order to get it done she asked you, a bright student taking the Data Engineering class, to define the dataflow, and, as mentioned previously that, once a week, in her database, there have to be 5 generated characters ready for her less-fortunate session peers to use.
+In order to get it done she asked you, a bright student taking the Data Engineering class, to define the dataflow, and, as mentioned previously that, once a week, in her database, there have to be some generated characters ready for her less-fortunate session peers to use.
 
 Read the docs of the API that we will use. It's very simple and didatic, no objects are deeply nested: https://www.dnd5eapi.co/docs/
-
-Project from @riccardotomassini
-
-## Requirements
-
-* To have docker *and* docker-compose installed.
-* Install docker and docker-compose exactly as it is described in the website.
-* **do not do do apt install docker or docker-compose**
-
-## How to spin the webserver up
-
-### Prepping
-
-First, get your **id**:
-```sh
-id -u
-```
-
-Now edit the **.env** file and swap out 501 for your own.
-
-Run the following command to creat the volumes needed in order to send data to airflow:
-```sh
-mkdir -p ./dags ./logs ./plugins
-```
-
-And this **once**:
-```sh
-docker-compose up airflow-init
-```
-If the exit code is 0 then it's all good.
-
-### Running
-
-```sh
-docker-compose up
-```
-
-After it is up, add a new connection:
-
-* Name - postgres_default
-* Conn type - postgres
-* Host - localhost
-* Port - 5432
-* Database - airflow
-* Username - airflow
-* Password - airflow
